@@ -5,17 +5,20 @@ August 2018
 Written on a moving boat in the Peace-Athabasca Delta.  
 
     A script to pull data and metadata from a RiverSurveyorLive Matlab
-    export and write them to an excel file.  Prompts user input to select
-    directory containing the .mat files exported from River Surveyor Live.
-    It is necessary to export the day's files from RSL (ctrl + t, Matlab 
-    export all).  If you set usesummfile equal to 1, then you must export 
-    the summary file from
-    RSL.  (ctrl + s), make sure all are highlighed red (default), and save
+    export and write them to an excel file.  Used to semi-automatically perform
+    quality control on bathymetry and discharge data.  Prompts user input to select
+    directory (typically named by the day's date, or following day's date
+    if duration exceeds midnight UTC).  It is necessary to export the
+    day's files from River Surveryor Live (RSL, ctrl + t, Matlab export all).  If you set
+    usesummfile equal to 1, then you must export the summary file from
+    RS.  (ctrl + s), make sure all are highlighed red (default), and save
     as ascii.  The file name
-    doesn't matter, but the extension must be .dis.  This script supports 
-    multiple .dis input files if you are limited by RAM and have to export
-    these files in multiple batches.
+    doesn't matter, but the extension must be .dis
     Output QC file appears in this directory.
+
+    Additional, detailed instructions can be found in the attached
+    spreadsheet "HowToUse.xlsx".
+
 
 ## *Requirements*
     Matlab 9.3 (R2017b) - may have slight incompatibilities with earlier 

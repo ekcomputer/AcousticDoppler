@@ -16,6 +16,9 @@
 %     as ascii.  The file name
 %     doesn't matter, but the extension must be .dis
 %     Output QC file appears in this directory.
+% 
+%     Additional, detailed instructions can be found in the attached
+%     spreadsheet "HowToUse.xlsx".
 
 % Version History
 
@@ -40,7 +43,12 @@
 
 clear
 close all
-usesummfile=1; % switch to 0 if no summ file
+
+%% USER PARAMS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+usesummfile=0; % switch to 0 if no summ file
+use_time_offset=0;
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 startDir=pwd;
 
@@ -66,7 +74,11 @@ if isempty(k)
     disp('You need to export the .mat files from RiverSurveyorLive, you idiot.')
     return
 end
-use_time_offset=0;
+
+    % filter out ########r.mat files from search- they seem to be
+    % duplicates
+k_keep=~contains({k.name}, 'r');
+k=k(k_keep);
 for i = 1:numel(k)
     load(k(i).folder + "\"+ k(i).name);
     sample=1:length(System.Sample);
@@ -211,20 +223,21 @@ if usesummfile
         summheadings=summheadings{:};
         fclose(fid);
         summ={summ{:}{55:end-19}};
-        fprintf('Number of entries in .dis file number %u: %u\n', n, length(summ))
+        fprintf('Number of entries in .dis file number %u: %u\n', n, length(summ)-2)
         fprintf('Number of .mat files: %u\n', numel(k))
-    %     if length(summ)~=numel(k)
-    %         disp('The length of your .dis file is not equal to the number of')
-    %         disp('.mat files...')
-    %         fprintf('.Dis length: %u\n', length(summ))
-    %         fprintf('.mat files: %u\n', numel(k))
-    %         return
-    %     end
-        for i= 1:length(summ)
+        if length(summ)-2~=numel(k)
+            disp('The length of your .dis file is not equal to the number of')
+            disp('.mat files...Try adding or removing .mat files or turn off ')
+            disp('the ''usesummfile'' parameter ')
+            fprintf('.Dis length: %u\n', length(summ)-2)
+            fprintf('.mat files: %u\n', numel(k))
+            return
+        end
+        for i= 1:length(summ)-2 % adding the -2 excludes the mean and std summary lines
             summp{i}=textscan(summ{i}, '%s', 'Delimiter', '\t');
             summp{i}=summp{i}{:};
         end
-        for i=1:length(summ)
+        for i=1:length(summ)-2
             summfilename= summp{i}{2}(1:end-4); % name as reported in .dis file
             j_index=contains({val{:,1}}, summfilename);
             j=find(j_index);
