@@ -1,23 +1,27 @@
 # *Riv2xls*
 
-By Ethan Kyzivat and Ted Langhorst, with suggestions from Wayana Dolan  
+By Ethan Kyzivat and Ted Langhorst, with suggestions from Wayana Dolan 
+and Lincoln Pitcher
 August 2018  
 Written on a moving boat in the Peace-Athabasca Delta.  
 
     A script to pull data and metadata from a RiverSurveyorLive Matlab
-    export and write them to an excel file.  Used to semi-automatically perform
+    export and write them to an excel file to be used for manual inspection.  
+    This file contains more info than the default summary file output from 
+    River Surveryor Live (RSL).  Used to semi-automatically perform
     quality control on bathymetry and discharge data.  Prompts user input to select
     directory (typically named by the day's date, or following day's date
     if duration exceeds midnight UTC).  It is necessary to export the
-    day's files from River Surveryor Live (RSL, ctrl + t, Matlab export all).  If you set
+    day's files from RSL (ctrl + t, Matlab export all).  If you set
     usesummfile equal to 1, then you must export the summary file from
     RS.  (ctrl + s), make sure all are highlighed red (default), and save
-    as ascii.  The file name
-    doesn't matter, but the extension must be .dis
-    Output QC file appears in this directory.
+    as ascii.  The file name doesn't matter, but the extension must be
+    .dis. Output QC file appears in this directory.
 
     Additional, detailed instructions can be found in the attached
-    spreadsheet "HowToUse.xlsx".
+    spreadsheet "HowToUse.xlsx" and a sample of a filled out QA/QC
+    spreadsheet can be found in "Example_filled_out.xlsx."
+
 
 
 ## *Requirements*
