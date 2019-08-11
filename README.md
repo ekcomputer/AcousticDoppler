@@ -16,7 +16,10 @@ Written on a moving boat in the Peace-Athabasca Delta.
     usesummfile equal to 1, then you must export the summary file from
     RS.  (ctrl + s), make sure all are highlighed red (default), and save
     as ascii.  The file name doesn't matter, but the extension must be
-    .dis. Output QC file appears in this directory.
+    .dis. Output QC file appears in this directory.  One user parameter:
+    usesummfile.  Set to 0 zero if the script is having problems parsing
+    the .dis file (the output spreadsheet will have less pre-populated
+    fields).
 
     Additional, detailed instructions can be found in the attached
     spreadsheet "HowToUse.xlsx" and a sample of a filled out QA/QC

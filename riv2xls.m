@@ -16,7 +16,10 @@
 %     usesummfile equal to 1, then you must export the summary file from
 %     RS.  (ctrl + s), make sure all are highlighed red (default), and save
 %     as ascii.  The file name doesn't matter, but the extension must be
-%     .dis. Output QC file appears in this directory.
+%     .dis. Output QC file appears in this directory.  One user parameter:
+%     usesummfile.  Set to 0 zero if the script is having problems parsing
+%     the .dis file (the output spreadsheet will have less pre-populated
+%     fields).
 % 
 %     Additional, detailed instructions can be found in the attached
 %     spreadsheet "HowToUse.xlsx" and a sample of a filled out QA/QC
@@ -48,8 +51,7 @@ close all
 
 %% USER PARAMS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 usesummfile=1; % switch to 0 if no summ file
-use_time_offset=0;
-
+use_time_offset=0; % for old Sontek glitch that applied an erronous date/time offset
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 startDir=pwd;
@@ -71,7 +73,7 @@ FieldNames= {'Filename',	'Measurement_type',	'Location',	'Measurement_number',..
 disp('Good day!  Select working directory.')
 workingFolder=uigetdir;
 cd(workingFolder)
-k = dir("*.mat");
+k = dir('*.mat');
 if isempty(k)
     disp('You need to export the .mat files from RiverSurveyorLive, you idiot.')
     return
