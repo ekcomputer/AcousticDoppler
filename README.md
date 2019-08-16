@@ -23,7 +23,8 @@ Written on a moving boat in the Peace-Athabasca Delta.
 
     Additional, detailed instructions can be found in the attached
     spreadsheet "HowToUse.xlsx" and a sample of a filled out QA/QC
-    spreadsheet can be found in "Example_filled_out.xlsx."
+    spreadsheet can be found in "Example_filled_out.xlsx."  Sample .mat
+    and .riv files are in the sample_data folder.
 
 
 

@@ -23,7 +23,8 @@
 % 
 %     Additional, detailed instructions can be found in the attached
 %     spreadsheet "HowToUse.xlsx" and a sample of a filled out QA/QC
-%     spreadsheet can be found in "Example_filled_out.xlsx."
+%     spreadsheet can be found in "Example_filled_out.xlsx."  Sample .mat
+%     and .riv files are in the sample_data folder.
 
 % Version History
 
@@ -212,15 +213,14 @@ end
 if usesummfile
     summfile=cellstr(ls('*.dis'));
     fprintf('%u .dis files found.\n', length(summfile))
-
-    if isempty(summfile)
+    if isempty(summfile{:})
         disp('You need to export the .dis files from RiverSurveyorLive, you idiot.')
         disp('ctrl-s and export to ascci.  OR: make sure only one .dis in directory.')
         disp('You can give it any name.')
         disp('OR: set usesummfile=0 at beginning of script.')
         return
     end
-    for n=1:length(summfile)
+    for n=1:length(summfile) % number of .dis files
         fid=fopen(summfile{n}, 'r');
         summ=textscan(fid, '%s', 'Delimiter', '\n');
         summheadings=textscan(summ{:}{54}, '%s', 'Delimiter', '\t');
