@@ -227,21 +227,30 @@ if usesummfile
         summheadings=summheadings{:};
         fclose(fid);
         summ={summ{:}{55:end-19}};
-        fprintf('Number of entries in .dis file number %u: %u\n', n, length(summ)-2)
+        j=1; % counter variable
+        for m=1:length(summ) % filter out lines not corresponding to data
+            if isempty(str2num(summ{m}(1))) % if this is the MEAN, STD, or COV line, delete it
+            else
+                summ2{j}=summ{m};
+                j=j+1;
+            end
+        end
+        summ=summ2;
+        fprintf('Number of entries in .dis file number %u: %u\n', n, length(summ))
         fprintf('Number of .mat files: %u\n', numel(k))
-        if length(summ)-2~=numel(k)
+        if length(summ)~=numel(k)
             disp('The length of your .dis file is not equal to the number of')
             disp('.mat files...Try adding or removing .mat files or turn off ')
             disp('the ''usesummfile'' parameter ')
-            fprintf('.Dis length: %u\n', length(summ)-2)
+            fprintf('.Dis length: %u\n', length(summ))
             fprintf('.mat files: %u\n', numel(k))
             return
         end
-        for i= 1:length(summ)-2 % adding the -2 excludes the mean and std summary lines
+        for i= 1:length(summ) % adding the -2 excludes the mean and std summary lines
             summp{i}=textscan(summ{i}, '%s', 'Delimiter', '\t');
             summp{i}=summp{i}{:};
         end
-        for i=1:length(summ)-2
+        for i=1:length(summ)
             summfilename= summp{i}{2}(1:end-4); % name as reported in .dis file
             j_index=contains({val{:,1}}, summfilename);
             j=find(j_index);

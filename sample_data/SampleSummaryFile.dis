@@ -1,0 +1,69 @@
+Discharge Measurement Summary
+Date Measured: Monday, August 5, 2019
+
+Site Information
+Site Name; 
+Station Number; 
+Location; 
+
+Measurement Information
+Party; 
+Boat/Motor; 
+Meas. Number; 
+
+System Information
+System Type;RS-M9
+Serial Number;4831
+Firmware Version;4.10
+Software Version;4.0
+
+System Setup
+Transducer Depth (m); 0.20
+Screening Distance (m); 0.00
+Salinity (ppt); 0.0
+Magnetic Declination (deg); 13.5
+
+Units
+Distance; m
+Velocity; m/s
+Area; m2
+Discharge; m3/s
+Temperature; degC
+
+Discharge Calculation Settings
+Track Reference; Bottom-Track
+Bottom Fit Type; Power Fit
+Left Method; Sloped Bank
+Depth Reference; Vertical Beam
+Top Fit Type; Power Fit
+Right Method; Sloped Bank
+Coordinate System; ENU
+
+Discharge Results
+Width (m); 39.181
+Area (m2); 285.656
+Mean Speed (m/s); -0.184
+% Measured (%); 59.1
+Total Q (m3/s); -52.464
+Mean Samples Per Transect; 221
+Maximum Speed; 4.536
+Mean Depth; 7.48
+Maximum Depth; 44.05
+
+Measurement Results
+Transect	File name	Start Edge	Start Date	Start Time	Duration	Temperature (degC)	Track (m)	DMG (m)	Width (m)	Area (m2)	Boat Speed (m/s)	Mean Speed (m/s)	Left Q (m3/s)	Right Q (m3/s)	Top Q (m3/s)	Middle Q (m3/s)	Bottom Q (m3/s)	Total Q (m3/s)	MB Corrected Total Q (m3/s)	% Measured (%)	
+1	20190805130357.riv	Left Bank	8/5/2019	1:03:57 PM	 0:03:41	19.9	38.76	24.18	39.181	285.656	0.175	-0.184	0.37	-8.50	-3.17	-31.44	-9.73	-52.464	--	59.1	
+				Mean	 0:03:41	19.9	38.76	24.18	39.181	285.656	0.175	-0.184	0.37	-8.50	-3.17	-31.44	-9.73	-52.464	0.000	59.1	
+				Std Dev	 0:00:00	0.0	0.00	0.00	0.000	0.000	0.000	0.000	0.00	0.00	0.00	0.00	0.00	0.000	0.000	0.0	
+				COV	0.000	0.0	0.000	0.000	0.000	0.000	0.000	-0.000	0.000	-0.000	-0.000	-0.000	-0.000	-0.000	0.000	0.000	
+
+Comments; 
+
+Compass Calibration
+Failed Calibration. Please Repeat Calibration!Calibration duration = 120 secondsM147.00 = Magnetic influence is unacceptableQ8 = Magnetic field is uniformH9 = Complete horizontal rotationV0 = Low pitch/rollRecommendation(s):Magnetic influence needs to bˆ•¹àÈ
+
+System Test
+System Test: PASS
+
+Parameters and settings marked with a * are not constant for all files.
+Report generated using SonTek RiverSurveyor Live v4.0
